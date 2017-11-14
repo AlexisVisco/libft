@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 12:44:50 by aviscogl          #+#    #+#             */
-/*   Updated: 2017/11/14 16:00:34 by aviscogl         ###   ########.fr       */
+/*   Updated: 2017/11/14 16:31:07 by aviscogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 # include <stdlib.h>
 # include <string.h>
 
-
 typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
-}		
+}					t_list;
 
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *str);
@@ -56,12 +55,13 @@ char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strnew(size_t size);
 char				*ft_strreplace(char *search, char *replace, char *subject);
-char				*ft_strreplace_first(char *search, char *replace, char *subject);
+char				*ft_strreplace_first(char *se, char *re, char *s);
 
 void				ft_putchar(char c);
 void				ft_putstr(const char *str);
 void				ft_putstr_classic(char *str);
 void				ft_putendl(char const *s);
+void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbr(int n);
 void				ft_bzero(void *s, size_t n);
 void				ft_putchar_fd(char c, int fd);
