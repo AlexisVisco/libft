@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 11:50:15 by aviscogl          #+#    #+#             */
-/*   Updated: 2017/11/13 13:54:37 by aviscogl         ###   ########.fr       */
+/*   Updated: 2017/11/14 16:06:12 by aviscogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putendl_fd(char const *s, int fd)
 {
-	ft_putstr_fd(ft_strjoin(s, "\n"), fd);
+	ft_putstr_fd(s, fd);
+	ft_putstr_fd('\n', fd);
 }
