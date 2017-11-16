@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 12:44:50 by aviscogl          #+#    #+#             */
-/*   Updated: 2017/11/14 16:31:07 by aviscogl         ###   ########.fr       */
+/*   Updated: 2017/11/16 11:11:52 by aviscogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strnew(size_t size);
 char				*ft_strreplace(char *search, char *replace, char *subject);
 char				*ft_strreplace_first(char *se, char *re, char *s);
+char				*ft_itoa_base(int n, const char *base);
 
 void				ft_putchar(char c);
 void				ft_putstr(const char *str);
@@ -85,6 +86,10 @@ int					ft_atoi(const char *str);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+int					math_pow(int nb, int power);
+int					math_sqrt(int nb);
+int					math_log(int n);
+int					math_round(double x);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 int					ft_lstsize(t_list *list);

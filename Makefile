@@ -65,6 +65,10 @@ ft_strsub.c \
 ft_strtrim.c \
 ft_tolower.c \
 ft_toupper.c \
+math_pow.c \
+math_sqrt.c \
+math_log.c \
+math_round.c
 
 OBJS= $(C_FILES:.c=.o)
 
