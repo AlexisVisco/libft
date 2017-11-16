@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 10:58:57 by aviscogl          #+#    #+#             */
-/*   Updated: 2017/11/16 11:01:15 by aviscogl         ###   ########.fr       */
+/*   Updated: 2017/11/16 11:22:30 by aviscogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int		math_pow(int nb, int power)
 		return (0);
 	if (power == 0)
 		return (1);
-	return (nb * ft_recursive_power(nb, power - 1));
+	return (nb * math_pow(nb, power - 1));
 }
