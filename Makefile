@@ -1,5 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/11/17 14:07:28 by aviscogl          #+#    #+#              #
+#    Updated: 2017/11/17 14:20:21 by aviscogl         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
+CC = gcc
+CC_FLAGS = -Wall -Wextra -Werror
 C_FILES = ft_atoi.c \
 ft_bzero.c \
 ft_isalnum.c \
@@ -71,12 +85,15 @@ math_log.c \
 math_round.c
 
 OBJS= $(C_FILES:.c=.o)
+INC= libft.h
 
 all: $(NAME)
 
-$(NAME):
-	gcc -c -Wall -Wextra -Werror $(C_FILES)
-	ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(INC)
+	ar rcs $(NAME) $(OBJS)
+
+./%.o: ./%.c
+	$(CC) $(CC_FLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)
