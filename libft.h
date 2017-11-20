@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 12:44:50 by aviscogl          #+#    #+#             */
-/*   Updated: 2017/11/16 11:11:52 by aviscogl         ###   ########.fr       */
+/*   Updated: 2017/11/20 21:07:21 by aviscogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *s, const char *find, size_t slen);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoinch(char const *s1, char c);
 char				*ft_strtrim(char const *s);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strmap(char const *s, char (*f)(char));

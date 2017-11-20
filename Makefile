@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/17 14:07:28 by aviscogl          #+#    #+#              #
-#    Updated: 2017/11/17 14:20:21 by aviscogl         ###   ########.fr        #
+#    Updated: 2017/11/20 21:06:54 by aviscogl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ ft_strequ.c \
 ft_striter.c \
 ft_striteri.c \
 ft_strjoin.c \
+ft_strjoinchar.c \
 ft_strlcat.c \
 ft_strlen.c \
 ft_strlen_classic.c \
