@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strncat.c                                     .::    .:/ .      .::   */
+/*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 16:11:05 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 19:11:08 by alexis      ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/24 21:54:19 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/24 21:55:05 by alexis      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-char	*ft_strncat(char *dest, const char *src, size_t n)
+int		main()
 {
-	size_t	index;
-	int		from;
-
-	from = ft_strlen_classic(dest);
-	index = 0;
-	while (src[index] != '\0' && index < n)
-	{
-		dest[index + from] = src[index];
-		index++;
-	}
-	dest[index + from] = '\0';
-	return (dest);
+	ft_printf("hello %s", "world");
 }

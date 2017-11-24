@@ -1,15 +1,15 @@
 # **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/11/17 14:07:28 by aviscogl          #+#    #+#              #
-#    Updated: 2017/11/20 21:06:54 by aviscogl         ###   ########.fr        #
-#                                                                              #
+#                                                           LE - /             #
+#                                                               /              #
+#    Makefile                                         .::    .:/ .      .::    #
+#                                                  +:+:+   +:    +:  +:+:+     #
+#    By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+      #
+#                                                  #+#   #+    #+    #+#       #
+#    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
+#    Updated: 2017/11/24 22:14:34 by alexis      ###    #+. /#+    ###.fr      #
+#                                                          /                   #
+#                                                         /                    #
 # **************************************************************************** #
-
 NAME = libft.a
 
 CC = gcc
@@ -83,18 +83,22 @@ ft_toupper.c \
 math_pow.c \
 math_sqrt.c \
 math_log.c \
-math_round.c
+math_round.c \
+printf/ft_printf.c \
+printf/print_char.c \
+printf/print_nb.c \
+printf/print_str.c \
 
 OBJS= $(C_FILES:.c=.o)
-INC= libft.h
+INC= includes/libft.h
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INC)
-	ar rcs $(NAME) $(OBJS)
+	ar rcs $(NAME) -L./printf $(OBJS)
 
 ./%.o: ./%.c
-	$(CC) $(CC_FLAGS) -c $< -o $@
+	$(CC) $(CC_FLAGS) -I includes/ -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)
@@ -103,3 +107,7 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
+test: all
+	gcc -lft -L. -I includes/ main/main.c  -o test
+	./test

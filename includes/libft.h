@@ -1,21 +1,22 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aviscogl <aviscogl@student.le101.fr>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 12:44:50 by aviscogl          #+#    #+#             */
-/*   Updated: 2017/11/20 21:07:21 by aviscogl         ###   ########.fr       */
-/*                                                                            */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   libft.h                                          .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/24 22:06:56 by alexis      ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
 /* ************************************************************************** */
-
 #ifndef _LIBFT_H
 # define _LIBFT_H
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdarg.h>
 
 typedef struct		s_list
 {
@@ -91,6 +92,11 @@ int					math_pow(int nb, int power);
 int					math_sqrt(int nb);
 int					math_log(int n);
 int					math_round(double x);
+
+void				ft_printf(char *fmt, ...);
+int					print_str(char **p, va_list list);
+int					print_nb(char **p, va_list list);
+int					print_char(char **p, va_list list);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 int					ft_lstsize(t_list *list);

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strncat.c                                     .::    .:/ .      .::   */
+/*   print_nb.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 16:11:05 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 19:11:08 by alexis      ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/24 20:16:41 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/24 21:51:45 by alexis      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdarg.h>
+#include <libft.h>
 
-
-char	*ft_strncat(char *dest, const char *src, size_t n)
+int print_str(char **p, va_list list)
 {
-	size_t	index;
-	int		from;
+	char *tmp;
 
-	from = ft_strlen_classic(dest);
-	index = 0;
-	while (src[index] != '\0' && index < n)
+	tmp = *p;
+	if ((*++tmp) == 'd' || (*tmp) == 'i')
 	{
-		dest[index + from] = src[index];
-		index++;
+		ft_putnbr(va_arg(list, int));
+		return (1);
 	}
-	dest[index + from] = '\0';
-	return (dest);
+	else
+		--tmp;
+	return (0);
 }
