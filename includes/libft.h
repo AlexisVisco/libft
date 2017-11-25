@@ -3,13 +3,14 @@
 /*                                                              /             */
 /*   libft.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 22:06:56 by alexis      ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/25 10:43:33 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
+
 #ifndef _LIBFT_H
 # define _LIBFT_H
 
@@ -73,6 +74,7 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_strclr(char *s);
+void				ft_putnbrbase(int nbr, char *base);
 
 int					ft_strlen_classic(char *str);
 int					ft_isalpha(int c);
@@ -90,13 +92,16 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					math_pow(int nb, int power);
 int					math_sqrt(int nb);
-int					math_log(int n);
+int					math_log(int n, int b);
 int					math_round(double x);
 
 void				ft_printf(char *fmt, ...);
-int					print_str(char **p, va_list list);
-int					print_nb(char **p, va_list list);
-int					print_char(char **p, va_list list);
+int					print_str(char *p, va_list list);
+int					print_nb(char *p, va_list list);
+int					print_char(char *p, va_list list);
+int					print_str_pad(char *p, va_list list);
+int					print_hex(char *p, va_list list);
+int					print_binary(char *p, va_list list);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 int					ft_lstsize(t_list *list);
