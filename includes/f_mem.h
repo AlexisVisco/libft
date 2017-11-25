@@ -6,13 +6,13 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:35:43 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 14:54:43 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/25 15:59:20 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _F_PRINTF_H
-# define _F_PRINTF_H
+#ifndef _F_MEM_H
+# define _F_MEM_H
 # include <string.h>
 # include <stdlib.h>
 
