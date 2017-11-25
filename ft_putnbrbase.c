@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   math_pow.c                                       .::    .:/ .      .::   */
+/*   ft_putnbrbase.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/16 10:58:57 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 10:52:41 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/25 10:27:16 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 10:48:18 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		math_pow(int nb, int power)
+static void	ft_putnbrbase_fd_inner(int nbr, char *base, size_t baselen,
+				int fd)
 {
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	return (nb * math_pow(nb, power - 1));
+	if (nbr >= (int)baselen)
+	{
+		ft_putnbrbase_fd_inner(nbr / baselen, base, baselen, fd);
+		ft_putnbrbase_fd_inner(nbr % baselen, base, baselen, fd);
+	}
+	else
+		ft_putchar_fd(base[nbr], fd);
+}
+
+void		ft_putnbrbase(int nbr, char *base)
+{
+	ft_putnbrbase_fd_inner(nbr, base, ft_strlen(base), 1);
 }

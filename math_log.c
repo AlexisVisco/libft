@@ -3,22 +3,22 @@
 /*                                                              /             */
 /*   math_log.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/16 11:05:16 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 18:57:08 by alexis      ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/25 10:52:48 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		math_log(int n)
+int		math_log(int n, int bse) 
 {
 	int len;
 
 	len = 0;
-	while (n /= 10)
+	while (n /= bse)
 		len++;
 	return (len);
 }
