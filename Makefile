@@ -3,15 +3,15 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+      #
+#    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/11/24 22:14:34 by alexis      ###    #+. /#+    ###.fr      #
+#    Updated: 2017/11/25 10:53:09 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
-NAME = libft.a
 
+NAME = libft.a
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
 C_FILES = ft_atoi.c \
@@ -44,6 +44,7 @@ ft_putchar_fd.c \
 ft_putendl.c \
 ft_putendl_fd.c \
 ft_putnbr.c \
+ft_putnbrbase.c \
 ft_putnbr_fd.c \
 ft_putstr.c \
 ft_putstr_classic.c \
@@ -87,7 +88,10 @@ math_round.c \
 printf/ft_printf.c \
 printf/print_char.c \
 printf/print_nb.c \
+printf/print_hex.c \
+printf/print_binary.c \
 printf/print_str.c \
+printf/print_str_pad.c \
 
 OBJS= $(C_FILES:.c=.o)
 INC= includes/libft.h
@@ -95,7 +99,7 @@ INC= includes/libft.h
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INC)
-	ar rcs $(NAME) -L./printf $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 ./%.o: ./%.c
 	$(CC) $(CC_FLAGS) -I includes/ -c $< -o $@
