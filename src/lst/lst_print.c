@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   lst_print.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:28:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/13 13:59:12 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 14:22:38 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H
-# define _LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "f_mem.h"
-# include "f_str.h"
-# include "f_io.h"
-# include "f_is.h"
-# include "f_lib.h"
-# include "f_lst.h"
-# include "f_math.h"
-# include "f_printf.h"
-
-#endif
+void	lst_print(t_list *list, void (*print_function)(t_list*))
+{
+	if (!list)
+		return ;
+	ft_putchar('{');
+	while (list)
+	{
+		print_function(list);
+		list = list->next;
+		if (list)
+			ft_putstr(", ");
+	}
+	ft_putchar('}');
+}

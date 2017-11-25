@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   ft_strnstr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:28:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/09 09:48:21 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 10:52:02 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H
-# define _LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "f_mem.h"
-# include "f_str.h"
-# include "f_io.h"
-# include "f_is.h"
-# include "f_lib.h"
-# include "f_lst.h"
-# include "f_math.h"
-# include "f_printf.h"
+char	*ft_strnstr(const char *s, const char *find, size_t slen)
+{
+	char	c;
+	char	sc;
+	size_t	len;
 
-#endif
+	if ((c = *find++) != '\0')
+	{
+		len = ft_strlen(find);
+		while (1)
+		{
+			while (1)
+			{
+				if (slen-- < 1 || (sc = *s++) == '\0')
+					return (NULL);
+				if (sc == c)
+					break ;
+			}
+			if (len > slen)
+				return (NULL);
+			if (ft_strncmp(s, find, len) == 0)
+				break ;
+		}
+		s--;
+	}
+	return ((char *)s);
+}

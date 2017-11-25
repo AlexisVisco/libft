@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   f_printf.h                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:28:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/25 14:33:19 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 15:31:20 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H
-# define _LIBFT_H
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
+#ifndef _F_PRINTF_H
+# define _F_PRINTF_H
 # include <stdarg.h>
-# include "f_mem.h"
-# include "f_str.h"
-# include "f_io.h"
-# include "f_is.h"
-# include "f_lib.h"
-# include "f_lst.h"
-# include "f_math.h"
-# include "f_printf.h"
+
+int		print_binary(char *p, va_list list);
+int		print_char(char *p, va_list list);
+int 	print_hex(char *p, va_list list);
+int		print_nb(char *p, va_list list);
+int		print_str_pad(char *p, va_list list);
+int		print_str(char *p, va_list list);
+void	ft_printf(char *fmt, ...);
 
 #endif

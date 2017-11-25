@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   print_str_pad.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:28:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/25 10:14:03 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 10:44:55 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H
-# define _LIBFT_H
+#include <stdarg.h>
+#include <libft.h>
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "f_mem.h"
-# include "f_str.h"
-# include "f_io.h"
-# include "f_is.h"
-# include "f_lib.h"
-# include "f_lst.h"
-# include "f_math.h"
-# include "f_printf.h"
+int		print_str_pad(char *p, va_list list)
+{
+	int pad_size;
+	char *s;
+	int diff;
+	int i;
 
-#endif
+	if ((*++p) == '*' && (*p != '\0' && *++p == 's'))
+	{
+		pad_size = va_arg(list, int);
+		s = va_arg(list, char *);
+		diff = pad_size - (int)ft_strlen(s);
+		i = -1;
+		while (++i < diff)
+			ft_putchar(' ');
+		ft_putstr(s);
+		return (2);
+	}
+	return (0);
+}

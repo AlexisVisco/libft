@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   ft_strjoin.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:28:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/10 09:28:17 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 10:51:12 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H
-# define _LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "f_mem.h"
-# include "f_str.h"
-# include "f_io.h"
-# include "f_is.h"
-# include "f_lib.h"
-# include "f_lst.h"
-# include "f_math.h"
-# include "f_printf.h"
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	int		total_size;
+	char	*res;
 
-#endif
+	if (!s1 || !s2)
+		return (NULL);
+	total_size = ft_strlen(s1) + ft_strlen(s2);
+	if (!(res = malloc(sizeof(char) * (total_size + 1))))
+		return (NULL);
+	res[total_size] = '\0';
+	while (*s1)
+	{
+		*res++ = *s1;
+		s1++;
+	}
+	while (*s2)
+	{
+		*res++ = *s2;
+		s2++;
+	}
+	return (res - total_size);
+}

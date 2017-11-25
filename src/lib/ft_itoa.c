@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   ft_itoa.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:28:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/10/20 20:35:31 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 10:46:47 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H
-# define _LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "f_mem.h"
-# include "f_str.h"
-# include "f_io.h"
-# include "f_is.h"
-# include "f_lib.h"
-# include "f_lst.h"
-# include "f_math.h"
-# include "f_printf.h"
+char	*ft_itoa(int nbr)
+{
+	int		tmp;
+	int		i;
+	int		mod;
+	char	*str;
 
-#endif
+	tmp = nbr;
+	i = 1;
+	mod = nbr < 0;
+	while (tmp /= 10)
+		i++;
+	if (!(str = malloc((i + 1 + mod) * sizeof(char))))
+		return (NULL);
+	if (mod)
+		*str++ = '-';
+	str += i;
+	*str-- = '\0';
+	if (nbr == 0)
+		*str-- = '0';
+	while (nbr)
+	{
+		*str-- = (nbr % 10) * (mod ? -1 : 1) + '0';
+		nbr /= 10;
+	}
+	return (str + 1 - mod);
+}

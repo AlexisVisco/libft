@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   lst_map.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:28:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/13 13:22:25 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 15:26:41 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H
-# define _LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "f_mem.h"
-# include "f_str.h"
-# include "f_io.h"
-# include "f_is.h"
-# include "f_lib.h"
-# include "f_lst.h"
-# include "f_math.h"
-# include "f_printf.h"
+t_list	*lst_map(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list	*new_list;
+	t_list	*tmp;
+	t_list	*first;
 
-#endif
+	if (!f || !lst)
+		return (NULL);
+	tmp = f(lst);
+	if (!(new_list = lst_new(tmp->content, tmp->content_size)))
+		return (NULL);
+	first = new_list;
+	lst = lst->next;
+	while (lst)
+	{
+		tmp = f(lst);
+		if (!(new_list->next = lst_new(tmp->content, tmp->content_size)))
+			return (NULL);
+		new_list = new_list->next;
+		lst = lst->next;
+	}
+	return (first);
+}

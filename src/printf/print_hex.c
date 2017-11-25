@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   print_hex.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:28:39 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/25 10:32:07 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 10:53:13 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H
-# define _LIBFT_H
+#include <stdarg.h>
+#include <libft.h>
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "f_mem.h"
-# include "f_str.h"
-# include "f_io.h"
-# include "f_is.h"
-# include "f_lib.h"
-# include "f_lst.h"
-# include "f_math.h"
-# include "f_printf.h"
-
-#endif
+int print_hex(char *p, va_list list)
+{
+	if ((*++p) == 'X')
+	{
+		ft_putnbrbase(va_arg(list, int), "0123456789ABCDEF");
+		return (1);
+	}
+	else if ((*p) == 'x')
+	{
+		ft_putnbrbase(va_arg(list, int), "0123456789abcdef");
+		return (1);
+	}
+	return (0);
+}
