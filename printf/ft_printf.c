@@ -3,28 +3,31 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: alexis <alexis@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/24 19:15:58 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 22:00:48 by alexis      ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/25 10:44:34 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#define NB_FUNCS 3
+#define NB_FUNCS 25
 
-static void		fill_functions(int (**functions)(char **, va_list))
+static void		fill_functions(int (**functions)(char *, va_list))
 {
 	functions[0] = print_char;
 	functions[1] = print_nb;
 	functions[2] = print_str;
+	functions[3] = print_str_pad;
+	functions[4] = print_hex;
+	functions[5] = print_binary;
 }
 
 void			ft_printf(char *fmt, ...)
 {
 	va_list		argp;
-	int			(*functions[NB_FUNCS])(char **, va_list);	
+	int			(*functions[NB_FUNCS])(char *, va_list);	
 	int 		i;
 	int			custom_format;
 
@@ -36,9 +39,10 @@ void			ft_printf(char *fmt, ...)
 		custom_format = 0;
 		while (*fmt == '%' && ++i < NB_FUNCS)
 		{
-			if (functions[i](&fmt, argp))
+			custom_format = functions[i](fmt, argp);
+			if (custom_format)
 			{
-				custom_format = 1;
+				fmt += custom_format;
 				break ;
 			}
 		}
