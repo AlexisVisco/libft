@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/11/25 15:24:01 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/11/25 21:44:51 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -53,6 +53,7 @@ math/math_round.c \
 math/math_sqrt.c \
 \
 mem/ft_bzero.c \
+mem/free_debug.c \
 mem/ft_memalloc.c \
 mem/ft_memccpy.c \
 mem/ft_memchr.c \
@@ -136,5 +137,8 @@ fclean: clean
 	/bin/rm -rf $(NAME)
 
 re: fclean all
+
+##	Use the compiled libft : 
+##		gcc -L. -lft -I $(INC_PATH) [C_FILES] -o [NAME_OUTPUT]
 
 .PHONY: clean fclean re
