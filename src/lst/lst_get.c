@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   lst_print.c                                      .::    .:/ .      .::   */
+/*   lst_get.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/13 13:59:12 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 11:10:13 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 10:17:50 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 10:20:19 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_print(t_list *list, void (*print_function)(t_list*))
+t_list	*lst_get(t_list **lst, int where)
 {
-	if (!list)
-		return ;
-	ft_putchar('{');
-	while (list)
+	t_list *tmp;
+	int i;
+	
+	if (!*lst)
+		return (NULL);
+	tmp = *lst;
+	i = 0;
+	while (tmp)
 	{
-		print_function(list);
-		list = list->next;
-		if (list)
-			ft_putstr(", ");
+		if (i == where)
+			return tmp;
+		i++;
+		tmp = tmp->next;
 	}
-	ft_putstr("}\n");
+	return (NULL);
 }

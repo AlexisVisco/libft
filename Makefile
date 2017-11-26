@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/11/25 21:44:51 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/11/26 12:06:40 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -35,14 +35,22 @@ lib/ft_itoa.c \
 lib/ft_itoa_base.c \
 \
 lst/lst_add.c \
+lst/lst_get.c \
 lst/lst_foreach.c \
 lst/lst_foreach_i.c \
 lst/lst_map.c \
 lst/lst_new.c \
 lst/lst_print.c \
 lst/lst_push.c \
-lst/lst_remove.c \
-lst/lst_remove_one.c \
+lst/lst_remove_if.c \
+lst/lst_clear.c \
+lst/lst_shift.c \
+lst/lst_pop.c \
+lst/lst_find.c \
+lst/lst_reverse.c \
+lst/lst_swap.c \
+lst/lst_sort.c \
+lst/lst_remove_at.c \
 lst/lst_size.c \
 \
 math/math_abs.c \
@@ -137,6 +145,9 @@ fclean: clean
 	/bin/rm -rf $(NAME)
 
 re: fclean all
+
+test: all
+	gcc -L. -lft -I $(INC_PATH) main/main.c -o test_libft.out
 
 ##	Use the compiled libft : 
 ##		gcc -L. -lft -I $(INC_PATH) [C_FILES] -o [NAME_OUTPUT]

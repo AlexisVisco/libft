@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   lst_print.c                                      .::    .:/ .      .::   */
+/*   lst_clear.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/13 13:59:12 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 11:10:13 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 11:02:15 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 11:02:31 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_print(t_list *list, void (*print_function)(t_list*))
+void	ft_list_clear(t_list **lst)
 {
-	if (!list)
-		return ;
-	ft_putchar('{');
-	while (list)
+	if (lst && *lst)
 	{
-		print_function(list);
-		list = list->next;
-		if (list)
-			ft_putstr(", ");
+		ft_list_clear(&(*lst)->next);
+		free(*lst);
+		*lst = NULL;
 	}
-	ft_putstr("}\n");
 }

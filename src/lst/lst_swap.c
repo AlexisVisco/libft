@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   lst_print.c                                      .::    .:/ .      .::   */
+/*   lst_swap.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/13 13:59:12 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 11:10:13 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 11:38:32 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 11:47:42 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_print(t_list *list, void (*print_function)(t_list*))
+void	lst_swap(t_list *a, t_list *b)
 {
-	if (!list)
-		return ;
-	ft_putchar('{');
-	while (list)
-	{
-		print_function(list);
-		list = list->next;
-		if (list)
-			ft_putstr(", ");
-	}
-	ft_putstr("}\n");
+	void *c;
+	size_t tsi;
+
+	c = a->content;
+	tsi = a->content_size;
+	a->content = b->content;
+	a->content_size = b->content_size;
+	b->content = c;
+	b->content_size = tsi;
 }

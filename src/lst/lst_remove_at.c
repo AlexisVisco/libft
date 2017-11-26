@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   lst_print.c                                      .::    .:/ .      .::   */
+/*   lst_remove_at.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/13 13:59:12 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 11:10:13 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 10:26:05 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 10:55:01 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_print(t_list *list, void (*print_function)(t_list*))
+void	lst_remove_at(t_list **lst, int where)
 {
-	if (!list)
+	t_list *node;
+	t_list *prev;
+	int i;
+	
+	if ((node = *lst) == NULL)
 		return ;
-	ft_putchar('{');
-	while (list)
+	prev = NULL;
+	i = 0;
+	while (node)
 	{
-		print_function(list);
-		list = list->next;
-		if (list)
-			ft_putstr(", ");
+		if (i == where)
+		{
+			if (prev)
+				prev->next = node->next;
+			else
+				*lst = node->next;
+			free(node->content);
+			free(node);
+			return ;
+		}
+		prev = node;
+		node = node->next;
+		i++;
 	}
-	ft_putstr("}\n");
 }

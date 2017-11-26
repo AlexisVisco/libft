@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   lst_remove.c                                     .::    .:/ .      .::   */
+/*   lst_find.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/12 17:23:33 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 14:25:50 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 11:23:04 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 11:23:53 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_remove(t_list **list, void (*del)(void *, size_t))
+t_list	*lst_find(t_list *list, void *data_ref, int (*cmp)())
 {
-	t_list	*erase;
-	t_list	*next;
-
-	erase = *list;
-	while (erase)
+	while (list)
 	{
-		next = erase->next;
-		del(erase->content, erase->content_size);
-		free(erase);
-		erase = next;
+		if ((*cmp)(list->content, data_ref) == 1)
+			return (list);
+		list = list->next;
 	}
-	*list = NULL;
+	return (NULL);
 }

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   lst_remove_one.c                                 .::    .:/ .      .::   */
+/*   lst_shift.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/12 17:50:09 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 14:25:15 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 11:05:15 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 11:08:48 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_remove_one(t_list **list, void (*del)(void*, size_t))
+t_list	*lst_shift(t_list **l)
 {
-	if (*list)
-		(*del)((*list)->content, (*list)->content_size);
-	ft_memdel((void **)list);
+	t_list *tmp;
+	if (!*l)
+		return (NULL);
+	tmp = *l;
+	*l = tmp->next;
+	return tmp;
 }

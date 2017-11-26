@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   lst_print.c                                      .::    .:/ .      .::   */
+/*   lst_pop.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/13 13:59:12 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 11:10:13 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 11:13:49 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 11:21:30 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	lst_print(t_list *list, void (*print_function)(t_list*))
+t_list	*lst_pop(t_list **lst)
 {
-	if (!list)
-		return ;
-	ft_putchar('{');
-	while (list)
+	t_list *node;
+	t_list *prev;
+
+	if ((node = *lst) == NULL)
+		return (NULL);
+	prev = NULL;
+	while (node)
 	{
-		print_function(list);
-		list = list->next;
-		if (list)
-			ft_putstr(", ");
+		if (node->next)
+		{
+			prev = node;
+			node = node->next;
+		}
+		else 
+			break ;
 	}
-	ft_putstr("}\n");
+	prev->next = NULL;
+	return node;
 }
