@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:38:52 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 14:54:04 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/26 22:04:27 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,6 +46,9 @@ char	**ft_strsplit(char *s, char delimiter);
 char	*ft_strstr(const char *str, const char *query);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s);
+int		ft_strmatch(const char *str, const char *match);
+char	*ft_strjoin_multiple(char *str, ...);
+int		ft_strisdigit(const char *s);
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);

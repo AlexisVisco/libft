@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/10 11:37:38 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 10:48:04 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/26 21:50:35 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,5 @@
 
 void	ft_putendl(char const *s)
 {
-	ft_putstr(s);
-	ft_putchar('\n');
+	ft_putendl_fd(s, 1);
 }

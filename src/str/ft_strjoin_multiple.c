@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putnbr.c                                      .::    .:/ .      .::   */
+/*   ft_strjoin_multiple.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/10/20 21:15:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 21:50:57 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 21:41:12 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 21:43:02 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+char	*ft_strjoin_multiple(char *str, ...)
 {
-	ft_putnbr_fd(n, 1);
+	va_list	ap;
+	char	*tmp;
+	char	*cpy;
+	int		i;
+
+	i = 0;
+	va_start(ap, str);
+	while (42)
+	{
+		tmp = va_arg(ap, char *);
+		if (!tmp)
+			break ;
+		cpy = ft_strdup(str);
+		if (i++ > 0)
+			free(str);
+		str = ft_strjoin(cpy, tmp);
+		free(cpy);
+	}
+	va_end(ap);
+	return (str);
 }

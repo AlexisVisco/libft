@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putnbr.c                                      .::    .:/ .      .::   */
+/*   ft_strisdigit.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/10/20 21:15:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 21:50:57 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 22:03:21 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 22:03:49 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int		ft_strisdigit(const char *s)
 {
-	ft_putnbr_fd(n, 1);
+	if (*s == '-')
+		s++;
+	while (*s)
+	{
+		if (!ft_isdigit(*s))
+			return (0);
+		s++;
+	}
+	return (1);
 }

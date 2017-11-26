@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putnbr.c                                      .::    .:/ .      .::   */
+/*   ft_putubase_fd.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/10/20 21:15:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 21:50:57 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/26 21:56:21 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 21:56:38 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_putubase_fd(int fd, unsigned long n, unsigned int base)
 {
-	ft_putnbr_fd(n, 1);
+	char	res[42];
+	int		i;
+
+	i = 0;
+	ft_bzero(&res, sizeof(res));
+	while (1)
+	{
+		res[i] = n % base >= 10 ? 'a' - 10 + n % base : '0' + n % base;
+		n /= base;
+		if (!n)
+			break ;
+		i++;
+	}
+	while (i >= 0)
+		ft_putchar_fd(fd, res[i--]);
 }

@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/10/19 22:07:48 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 10:48:32 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/26 21:51:30 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,5 @@
 
 void	ft_putstr(const char *str)
 {
-	if (str)
-		write(1, str, ft_strlen(str));
+	ft_putstr_fd(str, 1);
 }
