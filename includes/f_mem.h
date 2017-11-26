@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:35:43 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 21:44:36 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/26 15:40:47 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,7 +23,8 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	ft_memdel(void **ap);
-void	free_debug(void *ptr);
+void	free_debug(void **ptr);
+void	free_smart(void **ptr);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *s, int c, size_t n);
 

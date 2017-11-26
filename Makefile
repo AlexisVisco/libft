@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/11/26 12:22:13 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/11/26 15:41:00 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -62,6 +62,7 @@ math/math_sqrt.c \
 \
 mem/ft_bzero.c \
 mem/free_debug.c \
+mem/free_smart.c \
 mem/ft_memalloc.c \
 mem/ft_memccpy.c \
 mem/ft_memchr.c \
