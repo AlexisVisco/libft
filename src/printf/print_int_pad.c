@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   math_intlen.c                                    .::    .:/ .      .::   */
+/*   print_int_pad.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/16 11:05:16 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 12:19:41 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/25 10:14:03 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/26 13:23:38 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdarg.h>
+#include <libft.h>
 
-int		math_intlen(int n, int bse)
+int		print_int_pad(char *p, va_list list)
 {
-	unsigned int len;
-	unsigned int x;
-	len = 0;
-	x = n > 0 ? n : -n;
-	while (x /= bse)
-		len++;
-	return (len);
+	int pad_size;
+	int s;
+	int diff;
+	int i;
+
+	if ((*++p) == '*' && (*p != '\0' && *++p == 'i'))
+	{
+		pad_size = va_arg(list, int);
+		s = va_arg(list, int);
+		diff = pad_size - ((int)math_intlen(s, 10) + (s < 0 ? 1 : 0));
+		i = -1;
+		while (++i < diff)
+			ft_putchar(' ');
+		ft_putnbr(s);
+		return (2);
+	}
+	return (0);
 }

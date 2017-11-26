@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/24 19:15:58 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:32:32 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/26 12:22:30 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,7 @@ static void		fill_functions(int (**functions)(char *, va_list))
 	functions[3] = print_str_pad;
 	functions[4] = print_hex;
 	functions[5] = print_binary;
+	functions[6] = print_int_pad;
 }
 
 void			ft_printf(char *fmt, ...)

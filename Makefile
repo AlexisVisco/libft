@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/11/26 12:06:40 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/11/26 12:22:13 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -78,6 +78,7 @@ printf/print_hex.c \
 printf/print_nb.c \
 printf/print_str.c \
 printf/print_str_pad.c \
+printf/print_int_pad.c \
 \
 str/ft_strcat.c \
 str/ft_strchr.c \
