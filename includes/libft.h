@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/08 12:44:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 21:45:12 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/26 15:42:16 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@
 # include "f_math.h"
 # include "f_printf.h"
 
-# define smart __attribute__ ((cleanup(free)))
+# define smart __attribute__ ((cleanup(free_smart)))
 # define smart_debug __attribute__ ((cleanup(free_debug)))
 
 #endif
