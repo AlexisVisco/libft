@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/26 11:38:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 11:47:42 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 10:13:45 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,8 +15,8 @@
 
 void	lst_swap(t_list *a, t_list *b)
 {
-	void *c;
-	size_t tsi;
+	void	*c;
+	size_t	tsi;
 
 	c = a->content;
 	tsi = a->content_size;

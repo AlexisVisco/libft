@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:15:22 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 12:06:34 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 09:39:42 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,17 +28,18 @@ void				lst_add(t_list **list, t_list *n);
 t_list				*lst_get(t_list **list, int x);
 t_list				*lst_shift(t_list **list);
 t_list				*lst_pop(t_list **list);
-t_list				*lst_find(t_list *list, void *data_ref, int (*cmp)());
+t_list				*lst_find(t_list *list, void *data_ref, int (*c)());
 void				lst_reverse(t_list **list);
 void				lst_swap(t_list *a, t_list *b);
-void				lst_sort(t_list **lst, int (*cmp)());
+void				lst_sort(t_list **lst, int (*c)());
 void				ft_list_reverse(t_list **list);
 void				lst_remove_at(t_list **list, int x);
-void				lst_remove_if(t_list **lst, void *data_ref, int (*cmp)());
+void				lst_remove_if(t_list **lst, void *data_ref, int (*c)());
 void				lst_clear(t_list **lst);
 void				lst_foreach(t_list *lst, void (*f)(t_list *elem));
 void				lst_foreach_i(t_list *lst, void (*f)(t_list *elem, int));
 t_list				*lst_map(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*lst_collect_if(t_list *lst, void *data_ref, int (*c)());
 void				lst_print(t_list *list, void (*print_function)(t_list*));
 void				lst_push(t_list **list, t_list *value);
 int					lst_size(t_list *list);

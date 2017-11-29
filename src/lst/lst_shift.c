@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/26 11:05:15 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 11:08:48 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 10:22:50 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,9 +16,10 @@
 t_list	*lst_shift(t_list **l)
 {
 	t_list *tmp;
+
 	if (!*l)
 		return (NULL);
 	tmp = *l;
 	*l = tmp->next;
-	return tmp;
+	return (tmp);
 }

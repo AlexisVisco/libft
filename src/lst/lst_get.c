@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/26 10:17:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 10:20:19 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 10:23:12 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,9 +15,9 @@
 
 t_list	*lst_get(t_list **lst, int where)
 {
-	t_list *tmp;
-	int i;
-	
+	t_list	*tmp;
+	int		i;
+
 	if (!*lst)
 		return (NULL);
 	tmp = *lst;
@@ -25,7 +25,7 @@ t_list	*lst_get(t_list **lst, int where)
 	while (tmp)
 	{
 		if (i == where)
-			return tmp;
+			return (tmp);
 		i++;
 		tmp = tmp->next;
 	}

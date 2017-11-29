@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 13:54:46 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 15:25:53 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 10:24:44 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,8 +15,9 @@
 
 static void		aux(int n, int b, char *ans, int *p)
 {
-	char	base[] = "0123456789ABCDEF";
+	char base[17];
 
+	base = "0123456789ABCDEF\0";
 	if (n <= -b || b <= n)
 		aux(n / b, b, ans, p);
 	ans[(*p)++] = base[math_abs(n % b)];

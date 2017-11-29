@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/11/26 22:05:12 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/11/29 09:40:10 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -43,6 +43,7 @@ lst/lst_get.c \
 lst/lst_foreach.c \
 lst/lst_foreach_i.c \
 lst/lst_map.c \
+lst/lst_collect_if.c \
 lst/lst_new.c \
 lst/lst_print.c \
 lst/lst_push.c \

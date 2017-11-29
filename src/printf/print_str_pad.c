@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 10:14:03 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 10:44:55 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 10:07:20 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,10 +16,10 @@
 
 int		print_str_pad(char *p, va_list list)
 {
-	int pad_size;
-	char *s;
-	int diff;
-	int i;
+	int		pad_size;
+	char	*s;
+	int		diff;
+	int		i;
 
 	if ((*++p) == '*' && (*p != '\0' && *++p == 's'))
 	{

@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 10:32:07 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 10:44:29 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 10:10:02 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,7 +14,7 @@
 #include <stdarg.h>
 #include <libft.h>
 
-int print_binary(char *p, va_list list)
+int		print_binary(char *p, va_list list)
 {
 	if ((*++p) == 'b')
 	{

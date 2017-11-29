@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:07:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 14:07:54 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 10:13:21 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,11 +16,12 @@
 int		math_pgcd(int a, int b)
 {
 	int r;
+
 	while (b != 0)
 	{
 		r = a % b;
 		a = b;
 		b = r;
 	}
-	return a;
+	return (a);
 }

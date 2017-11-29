@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putdouble.c                                   .::    .:/ .      .::   */
+/*   lst_collect_if.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/26 21:51:47 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 10:02:19 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/29 09:32:43 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/29 10:06:04 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putdouble(double d)
+t_list	*lst_collect_if(t_list *lst, void *data_ref, int (*cmp)())
 {
-	ft_putdouble_fd(d, 1);
+	t_list	*new_list;
+
+	if (!cmp || !lst || !data_ref)
+		return (NULL);
+	new_list = NULL;
+	while (lst)
+	{
+		if (cmp(data_ref, lst->content))
+			lst_push(&new_list, lst_new(lst->content, lst->content_size));
+		lst = lst->next;
+	}
+	return (new_list);
 }

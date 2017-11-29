@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/24 19:15:58 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 12:22:30 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/11/29 10:08:54 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,13 +29,13 @@ static void		fill_functions(int (**functions)(char *, va_list))
 void			ft_printf(char *fmt, ...)
 {
 	va_list		argp;
-	int			(*functions[NB_FUNCS])(char *, va_list);	
-	int 		i;
+	int			(*functions[NB_FUNCS])(char *, va_list);
+	int			i;
 	int			custom_format;
 
 	fill_functions(functions);
 	va_start(argp, fmt);
-	while(*fmt)
+	while (*fmt)
 	{
 		i = -1;
 		custom_format = 0;
@@ -51,6 +51,6 @@ void			ft_printf(char *fmt, ...)
 		if (!custom_format)
 			ft_putchar(*fmt);
 		fmt++;
-	}			
+	}
 	va_end(argp);
 }
