@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/12/02 17:09:52 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/02 20:36:16 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -18,6 +18,7 @@ io/ft_putchar_fd.c \
 io/ft_putendl.c \
 io/ft_putendl_fd.c \
 io/ft_putnbr.c \
+io/get_next_line.c \
 io/ft_putnbr_fd.c \
 io/ft_putnbrbase.c \
 io/ft_putstr.c \
@@ -125,6 +126,7 @@ str/ft_strrchr.c \
 str/ft_strreplace.c \
 str/ft_strreplace_first.c \
 str/ft_strsplit.c \
+str/ft_strsplit_f.c \
 str/ft_strstr.c \
 str/ft_strsub.c \
 str/ft_strtrim.c \
