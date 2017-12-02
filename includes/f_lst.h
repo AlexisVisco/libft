@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:15:22 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 09:39:42 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/02 16:57:04 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,10 +30,11 @@ t_list				*lst_shift(t_list **list);
 t_list				*lst_pop(t_list **list);
 t_list				*lst_find(t_list *list, void *data_ref, int (*c)());
 void				lst_reverse(t_list **list);
+void				lst_delete(t_list **list, void (*del)(void *, size_t s));
 void				lst_swap(t_list *a, t_list *b);
 void				lst_sort(t_list **lst, int (*c)());
 void				ft_list_reverse(t_list **list);
-void				lst_remove_at(t_list **list, int x);
+void				lst_remove_at(t_list **, int, void (*d)(void *, size_t s));
 void				lst_remove_if(t_list **lst, void *data_ref, int (*c)());
 void				lst_clear(t_list **lst);
 void				lst_foreach(t_list *lst, void (*f)(t_list *elem));
