@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/11/29 09:40:10 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/02 17:09:52 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -41,6 +41,7 @@ lib/ft_itoa_base.c \
 lst/lst_add.c \
 lst/lst_get.c \
 lst/lst_foreach.c \
+lst/lst_delete.c \
 lst/lst_foreach_i.c \
 lst/lst_map.c \
 lst/lst_collect_if.c \
@@ -57,6 +58,14 @@ lst/lst_swap.c \
 lst/lst_sort.c \
 lst/lst_remove_at.c \
 lst/lst_size.c \
+\
+map/map_new.c \
+map/map_print.c \
+map/map_get.c \
+map/map_getv.c \
+map/map_del.c \
+map/map_set.c \
+map/map_unset.c \
 \
 math/math_abs.c \
 math/math_intlen.c \
@@ -121,16 +130,17 @@ str/ft_strsub.c \
 str/ft_strtrim.c \
 str/ft_tolower.c \
 str/ft_toupper.c \
+str/ft_strbasename.c \
 
 PROJECT = libft
 NAME = $(PROJECT).a
 CC = gcc
-CFLAGS += -Wall -Werror -Wextra
+CFLAGS += -g -Wall -Werror -Wextra
 
 SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = io is lib lst math mem printf str
+OBJ_PATHS = io is lib lst math mem printf str map
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))
 OBJ_NAME = $(C_FILES:.c=.o)
@@ -157,7 +167,7 @@ fclean: clean
 re: fclean all
 
 test: all
-	gcc -L. -lft -I $(INC_PATH) main/main.c -o test_libft.out
+	gcc -g -L. -lft -I $(INC_PATH) main/main.c -o test_libft.out
 
 ##	Use the compiled libft : 
 ##		gcc -L. -lft -I $(INC_PATH) [C_FILES] -o [NAME_OUTPUT]
