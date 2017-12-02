@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:38:52 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 22:04:27 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/02 09:47:20 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -49,6 +49,7 @@ char	*ft_strtrim(char const *s);
 int		ft_strmatch(const char *str, const char *match);
 char	*ft_strjoin_multiple(char *str, ...);
 int		ft_strisdigit(const char *s);
+char	*ft_strbasename(const char *filename);
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);
