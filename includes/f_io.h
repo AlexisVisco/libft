@@ -6,13 +6,15 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:27:35 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 22:00:45 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/02 18:18:02 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef _F_IO_H
 # define _F_IO_H
+
+# define BUFF_SIZE 32 
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putchar(char c);
@@ -28,5 +30,6 @@ void	ft_putdouble_fd(int fd, double d);
 void	ft_putdouble(double d);
 void	ft_putubase_fd(int fd, unsigned long n, unsigned int base);
 void	ft_putubase(unsigned long n, unsigned int base);
+int		get_next_line(const int fd, char **line);
 
 #endif
