@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/12/02 20:36:16 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/02 21:08:11 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -127,6 +127,7 @@ str/ft_strreplace.c \
 str/ft_strreplace_first.c \
 str/ft_strsplit.c \
 str/ft_strsplit_f.c \
+str/ft_split.c \
 str/ft_strstr.c \
 str/ft_strsub.c \
 str/ft_strtrim.c \
