@@ -6,30 +6,35 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:27:35 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/02 18:18:02 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/09 14:28:37 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef _F_IO_H
 # define _F_IO_H
+# include <unistd.h>
+# include <string.h>
 
 # define BUFF_SIZE 32 
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putchar(char c);
-void	ft_putendl_fd(char const *s, int fd);
-void	ft_putendl(char const *s);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putnbr(int n);
-void	ft_putnbrbase(int nbr, char *base);
-void	ft_putstr_classic(char *str);
-void	ft_putstr_fd(char const *s, int fd);
-void	ft_putstr(const char *str);
-void	ft_putdouble_fd(int fd, double d);
-void	ft_putdouble(double d);
-void	ft_putubase_fd(int fd, unsigned long n, unsigned int base);
-void	ft_putubase(unsigned long n, unsigned int base);
+size_t	ft_putstr_fd(int fd, char const *s);
+size_t	ft_putnstr_fd(int fd, char const *s, size_t n);
+size_t	ft_putstr(char const *s);
+size_t	ft_putnstr(char const *s, size_t n);
+
+size_t	ft_putchar_fd(int fd, char c);
+size_t	ft_putnchar_fd(int fd, char c, size_t n);
+size_t	ft_putchar(char c);
+size_t	ft_putnchar(char c, size_t n);
+
+size_t	ft_putnum_fd(int fd, int64_t n, uint8_t base);
+size_t	ft_putunum_fd(int fd, uint64_t n, uint8_t base);
+size_t	ft_putfloat_fd(int fd, float n, int precision, uint8_t base);
+size_t	ft_putunum(uint64_t n, uint8_t base);
+size_t	ft_putnum(int64_t n, uint8_t base);
+size_t	ft_putfloat(float n, int precision, uint8_t base);
+
 int		get_next_line(const int fd, char **line);
 
 #endif

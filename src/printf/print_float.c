@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_itoa.c                                        .::    .:/ .      .::   */
+/*   print_float.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/10/20 20:35:31 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 10:46:47 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/24 20:16:41 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/09 16:28:16 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdarg.h>
+#include <libft.h>
 
-char	*ft_itoa(int nbr)
+int		print_float(int fd, char *p, va_list list)
 {
-	int		tmp;
-	int		i;
-	int		mod;
-	char	*str;
-
-	tmp = nbr;
-	i = 1;
-	mod = nbr < 0;
-	while (tmp /= 10)
-		i++;
-	if (!(str = malloc((i + 1 + mod) * sizeof(char))))
-		return (NULL);
-	if (mod)
-		*str++ = '-';
-	str += i;
-	*str-- = '\0';
-	if (nbr == 0)
-		*str-- = '0';
-	while (nbr)
+	if ((*++p) == 'f')
 	{
-		*str-- = (nbr % 10) * (mod ? -1 : 1) + '0';
-		nbr /= 10;
+		ft_putfloat_fd(fd, va_arg(list, double), 3, 10);
+		return (1);
 	}
-	return (str + 1 - mod);
+	return (0);
 }

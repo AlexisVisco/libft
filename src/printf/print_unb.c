@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putnbrbase.c                                  .::    .:/ .      .::   */
+/*   print_unb.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/25 10:27:16 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 10:03:18 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/24 20:16:41 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/09 18:08:01 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdarg.h>
+#include <libft.h>
 
-static void	ft_putnbrbase_fd_inner(int nbr, char *base, size_t baselen,
-				int fd)
+int		print_unb(int fd, char *p, va_list list)
 {
-	if (nbr >= (int)baselen)
+	if ((*++p) == 'u')
 	{
-		ft_putnbrbase_fd_inner(nbr / baselen, base, baselen, fd);
-		ft_putnbrbase_fd_inner(nbr % baselen, base, baselen, fd);
+		ft_putunum_fd(fd, va_arg(list, uint64_t), 10);
+		return (1);
 	}
-	else
-		ft_putchar_fd(base[nbr], fd);
-}
-
-void		ft_putnbrbase(int nbr, char *base)
-{
-	ft_putnbrbase_fd_inner(nbr, base, ft_strlen(base), 1);
+	return (0);
 }

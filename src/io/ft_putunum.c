@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_itoa_base.c                                   .::    .:/ .      .::   */
+/*   ft_putunum.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/25 13:54:46 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/02 17:13:51 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/09 14:18:40 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/09 16:43:58 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		aux(int n, int b, char *ans, int *p, const char *base)
+size_t	ft_putunum_fd(int fd, uint64_t n, uint8_t base)
 {
-	if (n <= -b || b <= n)
-		aux(n / b, b, ans, p, "0123456789ABCDEF");
-	ans[(*p)++] = base[math_abs(n % b)];
+	char	buf[128];
+
+	return (write(fd, buf, (size_t)ft_uintstr(buf, n, base)));
 }
 
-char			*ft_itoa_base(int value, int base)
+size_t	ft_putunum(uint64_t n, uint8_t base)
 {
-	char	*ans;
-	int		p;
-
-	if (base < 2 || 16 < base
-		|| !(ans = (char *)malloc(sizeof(char) * math_intlen(value, base) + 2)))
-		return (NULL);
-	p = 0;
-	if (base == 10 && value < 0)
-		ans[p++] = '-';
-	aux(value, base, ans, &p, "0123456789ABCDEF");
-	ans[p] = '\0';
-	return (ans);
+	return (ft_putunum_fd(1, n, base));
 }

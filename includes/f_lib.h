@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:31:50 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 14:54:30 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/09 14:12:57 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,8 +16,9 @@
 # include <string.h>
 # include <stdlib.h>
 
-int		ft_atoi(const char *str);
-char	*ft_itoa_base(int value, int base);
+uint8_t	ft_floatstr(char *dst, float n, int precision, uint8_t base);
+uint8_t	ft_intstr(char *dst, int64_t n, uint8_t base);
+uint8_t	ft_uintstr(char *dst, uint64_t n, uint8_t base);
 char	*ft_itoa(int nbr);
 
 #endif

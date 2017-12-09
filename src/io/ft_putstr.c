@@ -1,19 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putstr.c                                      .::    .:/ .      .::   */
+/*   putstr.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/10/19 22:07:48 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 21:51:30 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/09 13:41:36 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/09 13:52:09 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(const char *str)
+size_t	ft_putstr_fd(int fd, char const *s)
 {
-	ft_putstr_fd(str, 1);
+	return (write(fd, s, ft_strlen(s)));
+}
+
+size_t	ft_putnstr_fd(int fd, char const *s, size_t n)
+{
+	size_t r;
+	
+	r = 0;
+	while (n > 0)
+	{
+		r += (write(fd, s, ft_strlen(s)));
+		n--;
+	}
+	return (r);
+}
+
+size_t	ft_putstr(char const *s)
+{
+	return (ft_putstr_fd(1, s));
+}
+
+size_t	ft_putnstr(char const *s, size_t n)
+{
+	return (ft_putnstr_fd(1, s, n));
 }

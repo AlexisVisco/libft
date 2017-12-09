@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putchar.c                                     .::    .:/ .      .::   */
+/*   putchar.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/10/19 22:01:05 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 21:50:08 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/09 13:48:35 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/09 13:54:52 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putchar(char c)
+size_t	ft_putchar_fd(int fd, char c)
 {
-	ft_putchar_fd(c, 1);
+	return (write(fd, (uint8_t *)(&c), sizeof(char)));
+}
+
+size_t	ft_putnchar_fd(int fd, char c, size_t n)
+{
+	char buf[(n * sizeof(char)) + 1];
+
+	ft_memset(buf, c, n);
+	buf[n] = '\0';
+	return (ft_putstr_fd(fd, buf));
+}
+
+size_t	ft_putchar(char c)
+{
+	return (ft_putchar_fd(1, c));
+}
+
+size_t	ft_putnchar(char c, size_t n)
+{
+	return (ft_putnchar_fd(1, c, n));
 }

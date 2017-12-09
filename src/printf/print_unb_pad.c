@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   math_intlen.c                                    .::    .:/ .      .::   */
+/*   print_unb_pad.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/16 11:05:16 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 10:13:03 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/25 10:14:03 by alexis       #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/09 18:14:45 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdarg.h>
+#include <libft.h>
 
-int		math_intlen(int n, int bse)
+int		print_unb_pad(int fd, char *p, va_list list)
 {
-	unsigned int len;
-	unsigned int x;
+	int			pad_size;
+	uint64_t	s;
+	int			diff;
 
-	len = 0;
-	x = n > 0 ? n : -n;
-	while (x /= bse)
-		len++;
-	return (len);
+	if ((*++p) == '*' && (*p != '\0' && *++p == 'u'))
+	{
+		pad_size = va_arg(list, int);
+		s = va_arg(list, uint64_t);
+		diff = pad_size - (math_uintlen(s, 10));
+		ft_putnchar_fd(fd, ' ', diff);
+		ft_putunum_fd(fd, s, 10);
+		return (2);
+	}
+	return (0);
 }

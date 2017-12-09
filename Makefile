@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/12/02 21:08:11 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/09 18:11:38 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -14,20 +14,10 @@
 C_FILES += \
 \
 io/ft_putchar.c \
-io/ft_putchar_fd.c \
-io/ft_putendl.c \
-io/ft_putendl_fd.c \
-io/ft_putnbr.c \
-io/get_next_line.c \
-io/ft_putnbr_fd.c \
-io/ft_putnbrbase.c \
+io/ft_putfloat.c \
+io/ft_putnum.c \
 io/ft_putstr.c \
-io/ft_putstr_classic.c \
-io/ft_putstr_fd.c \
-io/ft_putdouble_fd.c \
-io/ft_putdouble.c \
-io/ft_putubase.c \
-io/ft_putubase_fd.c \
+io/ft_putunum.c \
 \
 is/ft_isalnum.c \
 is/ft_isalpha.c \
@@ -36,8 +26,7 @@ is/ft_isdigit.c \
 is/ft_isprint.c \
 \
 lib/ft_atoi.c \
-lib/ft_itoa.c \
-lib/ft_itoa_base.c \
+lib/ft_numstr.c \
 \
 lst/lst_add.c \
 lst/lst_get.c \
@@ -69,7 +58,7 @@ map/map_set.c \
 map/map_unset.c \
 \
 math/math_abs.c \
-math/math_intlen.c \
+math/math_len.c \
 math/math_pgcd.c \
 math/math_pow.c \
 math/math_round.c \
@@ -91,10 +80,13 @@ printf/ft_printf.c \
 printf/print_binary.c \
 printf/print_char.c \
 printf/print_hex.c \
+printf/print_float.c \
 printf/print_nb.c \
+printf/print_unb.c \
 printf/print_str.c \
 printf/print_str_pad.c \
-printf/print_int_pad.c \
+printf/print_nb_pad.c \
+printf/print_unb_pad.c \
 \
 str/ft_strcat.c \
 str/ft_strchr.c \
