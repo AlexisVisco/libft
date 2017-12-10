@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/12/09 18:11:38 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/10 09:50:21 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -18,6 +18,7 @@ io/ft_putfloat.c \
 io/ft_putnum.c \
 io/ft_putstr.c \
 io/ft_putunum.c \
+io/get_next_line.c \
 \
 is/ft_isalnum.c \
 is/ft_isalpha.c \
