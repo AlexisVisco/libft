@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:15:22 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/02 16:57:04 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/10 10:10:54 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,6 @@ void				lst_reverse(t_list **list);
 void				lst_delete(t_list **list, void (*del)(void *, size_t s));
 void				lst_swap(t_list *a, t_list *b);
 void				lst_sort(t_list **lst, int (*c)());
-void				ft_list_reverse(t_list **list);
 void				lst_remove_at(t_list **, int, void (*d)(void *, size_t s));
 void				lst_remove_if(t_list **lst, void *data_ref, int (*c)());
 void				lst_clear(t_list **lst);

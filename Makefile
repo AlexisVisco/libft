@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/12/10 09:50:21 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/10 10:14:06 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -148,11 +148,11 @@ all: $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)/%.c
 	@mkdir -p $(OBJ_SUB_PATHS)
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 $(NAME): $(OBJ)
-	ar -rc $(NAME) $?
-	ranlib $(NAME)
+	@ar -rc $(NAME) $?
+	@ranlib $(NAME)
 
 clean:
 	/bin/rm -rf $(OBJ_PATH)
