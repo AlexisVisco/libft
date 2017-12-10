@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/12/10 10:14:06 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/10 17:59:13 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -105,6 +105,8 @@ str/ft_striteri.c \
 str/ft_strjoin.c \
 str/ft_strjoinch.c \
 str/ft_strlcat.c \
+str/ft_strstarts_with.c \
+str/ft_strends_with.c \
 str/ft_strlen.c \
 str/ft_strlen_classic.c \
 str/ft_strmap.c \
