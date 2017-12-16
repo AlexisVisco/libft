@@ -6,27 +6,23 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/08 15:41:22 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/25 10:51:47 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/16 09:55:08 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *s1, const char *s2, size_t n)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char *s;
+	unsigned int i;
 
-	s = s1;
-	while (n > 0 && *s2 != '\0')
+	i = 0;
+	while (src != '\0' && (i < n))
 	{
-		*s++ = *s2++;
-		--n;
+		dest[i] = src[i];
+		i++;
 	}
-	while (n > 0)
-	{
-		*s++ = '\0';
-		--n;
-	}
-	return (s1);
+	dest[i] = '\0';
+	return (dest);
 }

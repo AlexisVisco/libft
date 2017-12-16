@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2017/12/10 17:59:13 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/16 10:16:45 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -38,6 +38,7 @@ lst/lst_map.c \
 lst/lst_collect_if.c \
 lst/lst_new.c \
 lst/lst_print.c \
+lst/lst_printer_preset.c \
 lst/lst_push.c \
 lst/lst_remove_if.c \
 lst/lst_clear.c \
@@ -153,7 +154,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)/%.c
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 $(NAME): $(OBJ)
-	@ar -rc $(NAME) $?
+	@ar -rc $(NAME) $^
 	@ranlib $(NAME)
 
 clean:
@@ -164,8 +165,15 @@ fclean: clean
 
 re: fclean all
 
-test: all
-	gcc -g -L. -lft -I $(INC_PATH) main/main.c -o test_libft.out
+git_add:
+	make fclean
+	git add src/*
+	git add Makefile
+	git add includes/*
+	git add auteur
+
+# test: all
+# 	gcc -g -L. -lft -I $(INC_PATH) main/main.c -o test_libft.out
 
 ##	Use the compiled libft : 
 ##		gcc -L. -lft -I $(INC_PATH) [C_FILES] -o [NAME_OUTPUT]

@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/26 21:41:12 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/26 21:43:02 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/16 09:58:08 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,9 +18,7 @@ char	*ft_strjoin_multiple(char *str, ...)
 	va_list	ap;
 	char	*tmp;
 	char	*cpy;
-	int		i;
 
-	i = 0;
 	va_start(ap, str);
 	while (42)
 	{
@@ -28,8 +26,7 @@ char	*ft_strjoin_multiple(char *str, ...)
 		if (!tmp)
 			break ;
 		cpy = ft_strdup(str);
-		if (i++ > 0)
-			free(str);
+		free(str);
 		str = ft_strjoin(cpy, tmp);
 		free(cpy);
 	}
