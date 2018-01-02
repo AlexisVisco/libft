@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putstr.c                                      .::    .:/ .      .::   */
+/*   find_in_tab.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/09 13:41:36 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/02 12:53:28 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/14 09:55:59 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/02 12:59:11 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_putstr_fd(int fd, char const *s)
+int		find_in_tab(char **t, char *arg)
 {
-	return (write(fd, s, ft_strlen(s)));
-}
-
-size_t	ft_putnstr_fd(int fd, char const *s, size_t n)
-{
-	size_t r;
-
-	r = 0;
-	while (n > 0)
+	while (*t)
 	{
-		r += (write(fd, s, ft_strlen(s)));
-		n--;
+		if (ft_strequ(arg, *t))
+			return (1);
+		t++;
 	}
-	return (r);
-}
-
-size_t	ft_putstr(char const *s)
-{
-	return (ft_putstr_fd(1, s));
-}
-
-size_t	ft_putnstr(char const *s, size_t n)
-{
-	return (ft_putnstr_fd(1, s, n));
+	return (0);
 }
