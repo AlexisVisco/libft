@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/21 20:07:05 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/04 14:38:42 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/05 14:44:40 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,6 +28,18 @@ static int	smart_printer(int fd, char *str, int ret)
 	ret += write(fd, str, next_null);
 	ret += write(fd, "\0", 1);
 	return (smart_printer(fd, str + (next_null + ft_strlen(PRNT_NULL)), ret));
+}
+
+char		*ft_sprintf(char *format, ...)
+{
+	char	*dup_fmt;
+	va_list	ap;
+
+	va_start(ap, format);
+	dup_fmt = ft_strdup(format);
+	evaluator_core(&dup_fmt, ap);
+	va_end(ap);
+	return (dup_fmt);
 }
 
 static int	core_pf(int fd, const char *format, va_list lst)
