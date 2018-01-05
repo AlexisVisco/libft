@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2018/01/02 13:09:28 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/01/05 14:14:44 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -122,6 +122,48 @@ str/ft_strtrim.c \
 str/ft_tolower.c \
 str/ft_toupper.c \
 str/ft_strbasename.c \
+\
+printf/converter/c_intmax.c \
+printf/converter/c_uintmax.c \
+printf/converter/c_unicode.c \
+printf/struct/formatter.c \
+printf/evaluator/eval_string/compute/str_compute.c \
+printf/evaluator/eval_string/compute/str_padding.c \
+printf/evaluator/eval_string/compute/str_delprec_0.c \
+printf/evaluator/eval_string/compute/str_precision.c \
+printf/evaluator/eval_string/compute/wstr_precision.c \
+printf/evaluator/eval_string/get_string.c \
+printf/evaluator/eval_string/get_wstring.c \
+printf/evaluator/eval_char/get_char.c \
+printf/evaluator/eval_char/get_wchar.c \
+printf/evaluator/eval_base/get_base.c \
+printf/evaluator/eval_base/compute/base_compute.c \
+printf/evaluator/eval_base/compute/base_zero.c \
+printf/evaluator/eval_base/compute/base_delprec_0.c \
+printf/evaluator/eval_base/compute/base_hash.c \
+printf/evaluator/eval_number/get_val.c \
+printf/evaluator/eval_number/get_uval.c \
+printf/evaluator/eval_number/get_number.c \
+printf/evaluator/eval_number/compute/number_precision.c \
+printf/evaluator/eval_number/compute/number_zero.c \
+printf/evaluator/eval_number/compute/number_space.c \
+printf/evaluator/eval_number/compute/number_plus.c \
+printf/evaluator/eval_number/compute/number_compute.c \
+printf/evaluator/eval_pointer/compute/pointer_compute.c \
+printf/evaluator/eval_pointer/get_pointer.c \
+printf/evaluator/core.c \
+printf/evaluator/evaluator.c \
+printf/evaluator/dynamic_value.c \
+printf/parser/extract_flags.c \
+printf/parser/extract_full.c \
+printf/parser/extract_length.c \
+printf/parser/extract_precision.c \
+printf/parser/extract_width.c \
+printf/parser/extractor.c \
+printf/util/ft_str_repeat.c \
+printf/util/ft_strrep_first_aft.c \
+printf/util/unicode.c \
+printf/printf.c \
 
 PROJECT = libft
 NAME = $(PROJECT).a
@@ -131,7 +173,11 @@ CFLAGS += -g -Wall -Werror -Wextra
 SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = io is lib lst math mem printf str map
+OBJ_PATHS = io is lib lst math mem printf str map printf/parser printf/struct printf/util printf/converter printf/evaluator \
+printf/evaluator/eval_base printf/evaluator/eval_char printf/evaluator/eval_number \
+printf/evaluator/eval_pointer printf/evaluator/eval_string printf/evaluator/eval_string/compute \
+printf/evaluator/eval_base/compute printf/evaluator/eval_number/compute \
+printf/evaluator/eval_pointer/compute
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))
 OBJ_NAME = $(C_FILES:.c=.o)
@@ -164,8 +210,8 @@ git_add:
 	git add includes/*
 	git add auteur
 
-# test: all
-# 	gcc -g -L. -lft -I $(INC_PATH) main/main.c -o test_libft.out
+test: all
+	gcc -g -L. -lft -I $(INC_PATH) main/main.c -o test_libft.out
 
 ##	Use the compiled libft : 
 ##		gcc -L. -lft -I $(INC_PATH) [C_FILES] -o [NAME_OUTPUT]

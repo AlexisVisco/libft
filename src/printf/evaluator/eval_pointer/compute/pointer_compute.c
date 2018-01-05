@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   pointer_compute.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/28 12:28:08 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/05 13:52:54 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+#define P_ZERO_CHILD (ft_strchr(t->flags, '0') && !ft_strchr(t->flags, '-'))
+#define P_HAS_ZERO ((P_ZERO_CHILD && !has_prec))
+
+void	pointer_compute(t_formatter *t)
 {
-	char	*str;
-	size_t	cur;
+	int	has_prec;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
-	{
-		str[cur] = s[start + cur];
-		cur++;
-	}
-	str[cur] = '\0';
-	return (str);
+	has_prec = t->precision > 0 && ft_strlen(t->to_replace);
+	if (has_prec)
+		number_precision(t);
+	if (P_HAS_ZERO)
+		base_zero(t);
+	if ((!P_HAS_ZERO || ft_strchr(t->flags, '-')))
+		if (t->width > 0 && (int)ft_strlen(t->to_replace) < t->width)
+			str_padding(t);
 }

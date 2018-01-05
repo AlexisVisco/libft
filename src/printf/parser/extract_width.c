@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   extract_width.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/20 14:05:20 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/02 13:26:34 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	extract_width(t_formatter *fmt, char **str)
 {
-	char	*str;
-	size_t	cur;
+	char	width[11];
+	uint8_t	i;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
+	if (**str == '*')
 	{
-		str[cur] = s[start + cur];
-		cur++;
+		fmt->width = -2;
+		fmt->is_width_first = fmt->is_width_first == -1 ? -1 : 1;
+		(*str)++;
+		return ;
 	}
-	str[cur] = '\0';
-	return (str);
+	i = 0;
+	width[i] = 0;
+	while (**str && ft_isdigit(**str))
+		*str += (i < 10 ? !!(width[i++] = **str) : 1);
+	width[i] = 0;
+	if (width[0])
+		fmt->width = ft_atoi(width);
 }

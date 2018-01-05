@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   get_wchar.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/26 19:44:15 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/05 13:52:05 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+static char		*get_wchar_st(wchar_t arg)
 {
 	char	*str;
-	size_t	cur;
+	int		len;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
-	{
-		str[cur] = s[start + cur];
-		cur++;
-	}
-	str[cur] = '\0';
+	if (arg == 0)
+		return (ft_strdup(PRNT_NULL));
+	len = ft_wcharlen(arg);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	str[len] = 0;
+	ft_wchar_in_str(arg, str, 0);
 	return (str);
+}
+
+void			get_wchar(t_formatter *t, va_list lst)
+{
+	wchar_t	arg;
+	char	*str;
+
+	arg = va_arg(lst, wchar_t);
+	str = get_wchar_st(arg);
+	free(t->to_replace);
+	t->to_replace = str;
 }

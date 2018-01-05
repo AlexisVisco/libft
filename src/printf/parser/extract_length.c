@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   extract_length.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/20 13:18:51 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/02 13:22:45 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+#define IS_DL(str, ch) ((*str)[0] == ch && (*str)[1] && (*str)[1] == ch)
+
+void	extract_length(t_formatter *fmt, char **str)
 {
-	char	*str;
-	size_t	cur;
-
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
+	if (IS_DL(str, 'h') || IS_DL(str, 'l'))
 	{
-		str[cur] = s[start + cur];
-		cur++;
+		ft_strcpy(fmt->length, (*str[0] == 'h' ? "hh" : "ll"));
+		(*str) += 2;
 	}
-	str[cur] = '\0';
-	return (str);
+	else if (ft_strchr(LENGTH, **str))
+	{
+		fmt->length[0] = **str;
+		fmt->length[1] = 0;
+		(*str)++;
+	}
 }

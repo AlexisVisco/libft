@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   get_pointer.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/28 11:50:46 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/03 15:02:01 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	get_pointer(t_formatter *t, va_list lst)
 {
-	char	*str;
-	size_t	cur;
+	uintmax_t	pointer;
+	char		*str;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
-	{
-		str[cur] = s[start + cur];
-		cur++;
-	}
-	str[cur] = '\0';
-	return (str);
+	pointer = va_arg(lst, uintmax_t);
+	str = malloc(sizeof(char) * 256);
+	str_uintmax(str, pointer, 16, BASE);
+	free(t->to_replace);
+	t->to_replace = str;
+	base_hash(t);
+	pointer_compute(t);
 }

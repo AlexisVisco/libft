@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   wstr_precision.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/26 11:15:44 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/04 13:23:20 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	wstr_precision(wchar_t **w, t_formatter *t)
 {
-	char	*str;
-	size_t	cur;
+	wchar_t *tmp;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
+	if (t->precision == 0)
 	{
-		str[cur] = s[start + cur];
-		cur++;
+		tmp = malloc(sizeof(wchar_t) * 1);
+		tmp[0] = L'\0';
+		*w = tmp;
 	}
-	str[cur] = '\0';
-	return (str);
+	tmp = ft_wstrsubpf(*w, t->precision);
+	*w = tmp;
 }

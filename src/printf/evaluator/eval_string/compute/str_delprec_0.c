@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   str_delprec_0.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/03 21:33:43 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/03 21:35:50 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	str_delprec_0(t_formatter *t)
 {
-	char	*str;
-	size_t	cur;
+	char *str;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
-	{
-		str[cur] = s[start + cur];
-		cur++;
-	}
-	str[cur] = '\0';
-	return (str);
+	free(t->to_replace);
+	str = malloc(sizeof(char) * 1);
+	str[0] = 0;
+	t->to_replace = str;
 }

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   get_string.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/23 14:45:00 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/04 13:27:06 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	get_string(t_formatter *t, va_list lst)
 {
-	char	*str;
-	size_t	cur;
+	char *arg;
+	char *tmp;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
-	{
-		str[cur] = s[start + cur];
-		cur++;
-	}
-	str[cur] = '\0';
-	return (str);
+	if (ft_strchr(t->length, 'l') || t->type == 'S')
+		return (get_wstring(t, lst));
+	tmp = va_arg(lst, char *);
+	arg = ft_strdup(tmp ? tmp : "(null)");
+	free(t->to_replace);
+	t->to_replace = arg;
+	str_compute(t);
 }

@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   ft_str_repeat.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/27 11:02:38 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/02 13:20:57 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	ft_str_repeat(char **str, char c, int n)
+{
+	int x;
+
+	x = -1;
+	while (++x < n)
+		(*str)[x] = c;
+}
+
+char	*ft_str_repeatm(char c, int n)
 {
 	char	*str;
-	size_t	cur;
+	int		x;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
-	{
-		str[cur] = s[start + cur];
-		cur++;
-	}
-	str[cur] = '\0';
+	str = malloc(sizeof(char) * (n + 1));
+	str[n] = 0;
+	x = -1;
+	while (++x < n)
+		str[x] = c;
 	return (str);
 }

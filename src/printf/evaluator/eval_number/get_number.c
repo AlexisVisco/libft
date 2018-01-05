@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   get_number.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/28 10:05:21 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/03 15:01:56 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	get_number(t_formatter *t, va_list lst)
 {
-	char	*str;
-	size_t	cur;
+	intmax_t	val;
+	char		*str;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
-	{
-		str[cur] = s[start + cur];
-		cur++;
-	}
-	str[cur] = '\0';
-	return (str);
+	get_val(t, &val, lst);
+	free(t->to_replace);
+	str = malloc(sizeof(char) * 256);
+	str_intmax(str, val, 10, BASE);
+	t->to_replace = str;
+	number_compute(t);
+}
+
+void	get_unumber(t_formatter *t, va_list lst)
+{
+	uintmax_t	val;
+	char		*str;
+
+	get_uval(t, &val, lst);
+	free(t->to_replace);
+	str = malloc(sizeof(char) * 256);
+	str_uintmax(str, val, 10, BASE);
+	t->to_replace = str;
+	number_compute(t);
 }

@@ -1,32 +1,49 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   c_uintmax.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/21 09:09:01 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/03 15:52:03 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int16_t		len_uintmax(uintmax_t v, uint8_t base)
 {
-	char	*str;
-	size_t	cur;
+	int16_t ret;
 
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
+	ret = 1;
+	while (v /= base)
+		++ret;
+	return (ret);
+}
+
+int16_t		str_uintmax(char *dst, uintmax_t n, uint8_t base,
+const char *digits)
+{
+	int16_t	i;
+	int16_t	x;
+
+	if (base > 36)
+		return (0);
+	i = len_uintmax(n, base);
+	x = i;
+	dst[x] = 0;
+	x--;
+	if (n == 0)
 	{
-		str[cur] = s[start + cur];
-		cur++;
+		dst[0] = '0';
+		return (2);
 	}
-	str[cur] = '\0';
-	return (str);
+	while (n)
+	{
+		dst[x--] = digits[n % base];
+		n /= base;
+	}
+	return ((uint8_t)(i + 1));
 }

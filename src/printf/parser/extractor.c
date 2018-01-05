@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strsub.c                                      .::    .:/ .      .::   */
+/*   extractor.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/10 11:17:32 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/05 14:31:09 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/21 20:20:55 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/04 09:42:13 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	extract_params(t_formatter *fmt, char *full)
 {
-	char	*str;
-	size_t	cur;
-
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	while (cur < len)
+	if (!full)
+		return ;
+	while (*full)
 	{
-		str[cur] = s[start + cur];
-		cur++;
+		if (ft_strchr(FLAGS, *full))
+			extract_flags(fmt, &full);
+		else if (ft_isdigit(*full) || *full == '*')
+			extract_width(fmt, &full);
+		else if (*full == '.')
+			extract_precision(fmt, &full);
+		else if (ft_strchr(LENGTH, *full))
+			extract_length(fmt, &full);
+		else
+			full++;
 	}
-	str[cur] = '\0';
-	return (str);
 }
