@@ -12,13 +12,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <locale.h>
 
 int		main()
 {
-	char *line;
-	while (get_next_line(0, &line))
-	{
-		ft_printf("%s", line);
-		free(line);
-	}
+	ft_printf("%.3S\n", L"ééééé");
+	printf("%.3S\n", L"ééééé");
 }
