@@ -17,3 +17,13 @@ int		ft_strstarts_with(const char *s, char c)
 {
 	return (s[0] == c);
 }
+
+int		ft_strstarts_with_str(const char *s, char *str)
+{
+	int i;
+
+	i = 0;
+	while (s[i] == str[i])
+		i++;
+	return (i == ((int)ft_strlen(str)));
+}

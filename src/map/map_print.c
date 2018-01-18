@@ -23,11 +23,8 @@ void	map_print(t_map *map)
 	while (lst)
 	{
 		tmp = (t_entry *)lst->content;
-		ft_putstr("	key: ");
-		ft_putstr(tmp->key);
-		ft_putstr(" ; value: ");
-		ft_putstr(tmp->value);
-		ft_putstr(lst->next ? "," : "");
+		ft_printf("  %s=%s", tmp->key, tmp->value);
+		ft_putstr(lst->next ? ",\n" : "\n");
 		lst = lst->next;
 	}
 	ft_putstr("}\n");

@@ -21,5 +21,5 @@ void	free_debug(void *ptr)
 	real_ptr = (void **)ptr;
 	free(*real_ptr);
 	*real_ptr = NULL;
-	ft_putstr("Pointer is now free.\n");
+	ft_printf("Pointer %p is now free.\n", ptr);
 }

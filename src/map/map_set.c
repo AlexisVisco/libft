@@ -39,4 +39,5 @@ void	map_set(t_map *map, char *key, char *value)
 	entry->key = ft_strdup(key);
 	entry->value = ft_strdup(value);
 	lst_add(&(map->lst), lst_new(entry, sizeof(t_entry)));
+	free(entry);
 }

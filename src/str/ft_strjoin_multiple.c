@@ -13,23 +13,24 @@
 
 #include "libft.h"
 
-char	*ft_strjoin_multiple(char *str, ...)
+char	*ft_strjoin_multiple(int n, ...)
 {
 	va_list	ap;
 	char	*tmp;
 	char	*cpy;
+	char	*full;
 
-	va_start(ap, str);
-	while (42)
+	full = ft_strdup("");
+	va_start(ap, n);
+	while (n--)
 	{
 		tmp = va_arg(ap, char *);
 		if (!tmp)
 			break ;
-		cpy = ft_strdup(str);
-		free(str);
-		str = ft_strjoin(cpy, tmp);
+		cpy = full;
+		full = ft_strjoin(cpy, tmp);
 		free(cpy);
 	}
 	va_end(ap);
-	return (str);
+	return (full);
 }

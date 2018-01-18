@@ -16,6 +16,7 @@
 void	lst_delete(t_list **list, void (*del)(void *, size_t s))
 {
 	t_list	*current;
+	t_list	*tmp;
 
 	if (list)
 	{
@@ -24,8 +25,9 @@ void	lst_delete(t_list **list, void (*del)(void *, size_t s))
 		{
 			if (del)
 				(*del)(current->content, current->content_size);
-			free(current);
+			tmp = current;
 			current = current->next;
+			free(tmp);
 		}
 	}
 	*list = NULL;
@@ -34,6 +36,7 @@ void	lst_delete(t_list **list, void (*del)(void *, size_t s))
 void	lst_delete_free(t_list **list, void (*del)(void *, size_t s))
 {
 	t_list	*current;
+	t_list	*tmp;
 
 	if (list)
 	{
@@ -44,8 +47,9 @@ void	lst_delete_free(t_list **list, void (*del)(void *, size_t s))
 				(*del)(current->content, current->content_size);
 			if (current->content)
 				free(current->content);
-			free(current);
+			tmp = current;
 			current = current->next;
+			free(tmp);
 		}
 	}
 	*list = NULL;

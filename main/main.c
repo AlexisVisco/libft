@@ -15,6 +15,10 @@
 
 int		main()
 {
-	ft_printf("78326432 en hex: %X\n", 78326432);
-	ft_printf("78326432 en bin: %b\n", 78326432);
+	char *line;
+	while (get_next_line(0, &line))
+	{
+		ft_printf("%s", line);
+		free(line);
+	}
 }

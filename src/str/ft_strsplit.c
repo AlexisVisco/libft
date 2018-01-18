@@ -68,7 +68,7 @@ char			**ft_strsplit(char *s, char delimiter)
 		if (!IS_DEL(*str, delimiter))
 		{
 			*tab++ = get_word(str, delimiter);
-			str += ft_strlen(get_word(str, delimiter)) - 1;
+			str += ft_strlen(tab[-1]) - 1;
 		}
 		str++;
 	}
