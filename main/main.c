@@ -18,4 +18,5 @@ int		main()
 {
 	ft_printf("%.3S\n", L"ééééé");
 	printf("%.3S\n", L"ééééé");
+	
 }
