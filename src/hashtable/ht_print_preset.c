@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ht_hash.c                                        .::    .:/ .      .::   */
+/*   ht_print_preset.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/01/23 14:47:15 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/23 18:08:41 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/23 18:11:03 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/23 18:13:51 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ht_hash(const char *str)
+void	ht_print_str(t_node *a)
 {
-	const size_t	len = ft_strlen(str);
-	uint32_t		hash;
-	uint32_t		i;
+	ft_printf("%s = %s", a->key, (char *)a->value);
+}
 
-	i = 0;
-	hash = 0;
-	while(i < len) {
-		hash = hash << 8;
-		hash += str[i];
-		i++;
-	}
-	return (hash);
+void	ht_print_int(t_node *a)
+{
+	ft_printf("%s = %d", a->key, *(int *)a->value);
+}
+
+void	ht_print_int_hex(t_node *a)
+{
+	ft_printf("%s = %#x", a->key, *(int *)a->value);
+}
+
+void	ht_print_bool(t_node *a)
+{
+	ft_printf("%s = %s", a->key, *(int *)a->value == 0 ? "false" : "true");
 }

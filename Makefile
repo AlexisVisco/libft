@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2018/01/23 15:28:15 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/01/23 18:26:42 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -78,6 +78,8 @@ hashtable/ht_hash.c \
 hashtable/ht_remove.c \
 hashtable/ht_free.c \
 hashtable/ht_get.c \
+hashtable/ht_print.c \
+hashtable/ht_print_preset.c \
 \
 math/math_abs.c \
 math/math_len.c \
@@ -229,7 +231,7 @@ git_add:
 	git add auteur
 
 test: all
-	gcc -g -L. -lft -I $(INC_PATH) main/main.c main/lineoise.c main/line.h
+	gcc -g -L. -lft -I $(INC_PATH) main/main.c
 
 ##	Use the compiled libft : 
 ##		gcc -L. -lft -I $(INC_PATH) [C_FILES] -o [NAME_OUTPUT]

@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:15:22 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/23 15:16:34 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/23 18:35:25 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,5 +37,12 @@ size_t				ht_hash(const char *str);
 void				*ht_get(t_hashtable *ht, const char *key);
 void				ht_free(t_hashtable *t, void (*del)(void *));
 void				ht_default_free(void *a);
+void				ht_print(t_hashtable *ht, void (*printer)(t_node *));
+void				ht_print_debug(t_hashtable *t, void (*printer)(t_node *));
+
+void				ht_print_str(t_node *a);
+void				ht_print_int(t_node *a);
+void				ht_print_int_hex(t_node *a);
+void				ht_print_bool(t_node *a);
 
 #endif
