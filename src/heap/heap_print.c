@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/23 10:57:55 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/23 11:50:15 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/23 15:19:17 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,6 @@ void	heap_print(t_heap *h, void (*print_function)(void*))
 	ft_putstr("[");
 	while (i < h->size)
 	{
-		
 		if (h->list[i] == 0)
 			ft_putstr("NULL");
 		else

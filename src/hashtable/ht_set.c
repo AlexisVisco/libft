@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strstarts_with.c                              .::    .:/ .      .::   */
+/*   ht_set.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/10 17:55:55 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/23 15:20:48 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/23 13:27:45 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/23 15:18:35 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strstarts_with(const char *s, char c)
+void	ht_set(t_hashtable *h, const char *key, void *val)
 {
-	return (s[0] == c);
-}
+	t_node *node;
 
-int		ft_strstarts_with_str(const char *s, char *str)
-{
-	int i;
-
-	i = 0;
-	while (s[i] == str[i])
-		i++;
-	return (i == ((int)ft_strlen(str)));
+	node = ht_has_or_create(h, key);
+	node->value = val;
 }

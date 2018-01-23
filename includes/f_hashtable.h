@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   f_heap.h                                         .::    .:/ .      .::   */
+/*   f_hashtable.h                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:15:22 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/23 14:22:32 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/23 15:16:34 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef _F_HEAP_H
-# define _F_HEAP_H
+#ifndef _F_HASHTABLE_H
+# define _F_HASHTABLE_H
 # include <string.h>
 # include <stdlib.h>
 
-typedef struct		s_heap
+typedef struct		s_hashtable
 {
-	void			**list;
+	void			**heaps;
 	size_t			size;
-	size_t			next_insert;
-	int64_t			last_remove;
-	size_t			elements;
-}					t_heap;
+}					t_hashtable;
 
-void				heap_add(t_heap *heap, void *content);
-int64_t				heap_get_whole(t_heap *heap);
-void				*heap_get(t_heap *heap, size_t n);
-void				heap_growth(t_heap *hp);
-t_heap				*heap_new(size_t default_size);
-void				heap_print(t_heap *h, void (*print_function)(void*));
-void				*heap_del(t_heap *heap, size_t n);
-void				heap_free(t_heap *h, void (*del)(void *));
+typedef struct		s_node
+{
+	char			*key;
+	void			*value;
+}					t_node;
 
-void				heap_print_str(void *v);
-void				heap_print_int(void *v);
-void				heap_print_int_bin(void *v);
-void				heap_print_int_hex(void *v);
-void				heap_print_bool(void *v);
+t_node				*ht_has(t_hashtable *t, const char *key);
+t_node				*ht_has_or_create(t_hashtable *t, const char *key);
+t_hashtable			*ht_new(size_t size);
+void				ht_set(t_hashtable *h, const char *key, void *val);
+t_node				*ht_remove(t_hashtable *t, const char *key);
+size_t				ht_hash(const char *str);
+void				*ht_get(t_hashtable *ht, const char *key);
+void				ht_free(t_hashtable *t, void (*del)(void *));
+void				ht_default_free(void *a);
 
 #endif

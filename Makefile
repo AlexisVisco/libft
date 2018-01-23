@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2018/01/23 11:48:18 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/01/23 14:01:27 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -70,6 +70,10 @@ heap/heap_get.c \
 heap/heap_growth.c \
 heap/heap_print_preset.c \
 heap/heap_print.c \
+\
+hashtable/ht_has.c \
+hashtable/ht_new.c \
+hashtable/ht_set.c \
 \
 math/math_abs.c \
 math/math_len.c \
@@ -183,7 +187,7 @@ CFLAGS += -g -Wall -Werror -Wextra
 SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = io is lib lst heap math mem printf str map printf/parser printf/struct printf/util printf/converter printf/evaluator \
+OBJ_PATHS = io is lib lst heap hashtable math mem printf str map printf/parser printf/struct printf/util printf/converter printf/evaluator \
 printf/evaluator/eval_base printf/evaluator/eval_char printf/evaluator/eval_number \
 printf/evaluator/eval_pointer printf/evaluator/eval_string printf/evaluator/eval_string/compute \
 printf/evaluator/eval_base/compute printf/evaluator/eval_number/compute \
