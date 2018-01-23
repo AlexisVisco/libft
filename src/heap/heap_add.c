@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_bzero.c                                       .::    .:/ .      .::   */
+/*   heap_add.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 18:51:45 by alexis       #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/23 10:41:44 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/23 10:36:37 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/23 11:48:52 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	heap_add(t_heap *heap, void *content)
 {
-	size_t	i;
+	int64_t whole;
 
-	i = 0;
-	while (i < n)
+	if (heap->last_remove != -1)
 	{
-		((char *)s)[i] = 0;
-		i++;
+		heap->list[heap->last_remove] = content;
+		heap->last_remove = -1;
+	}
+	else if (heap->next_insert < heap->size)
+	{
+		heap->list[heap->next_insert] = content;
+		heap->next_insert++;
+	}
+	else
+	{
+		if ((whole = heap_get_whole(heap)) != -1)
+			heap->list[whole] = content;
+		else
+		{
+			heap_growth(heap);
+			heap_add(heap, content);
+		}
 	}
 }
