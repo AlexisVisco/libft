@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2018/01/23 14:01:27 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/01/23 15:28:15 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -74,6 +74,10 @@ heap/heap_print.c \
 hashtable/ht_has.c \
 hashtable/ht_new.c \
 hashtable/ht_set.c \
+hashtable/ht_hash.c \
+hashtable/ht_remove.c \
+hashtable/ht_free.c \
+hashtable/ht_get.c \
 \
 math/math_abs.c \
 math/math_len.c \
