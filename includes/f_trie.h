@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/29 18:28:39 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/29 21:01:38 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/29 21:35:14 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,12 +16,13 @@
 
 # include "libft.h"
 
-#define ALPHABET_SIZE 30
+#define ALPHABET_SIZE 255
 
 typedef struct			s_trie_node
 {
     struct s_trie_node	*children[ALPHABET_SIZE];
     int					is_word_end;
+    int					has_child;
 }						t_trie_node;
 
 t_trie_node				*trie_new(void);

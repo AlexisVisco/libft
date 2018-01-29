@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/29 18:52:07 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/29 21:00:54 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/29 21:36:07 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,12 +31,11 @@ static void	trie_start_with_a(t_trie_node *root, char *prefix, t_heap *heap)
 		if (root->children[i])
         {
 			tmp_ch = malloc(sizeof(char) * 2);
-			tmp_ch[0] = 97 + i;
+			tmp_ch[0] = i;
 			tmp_ch[1] = 0;
-			tmpx = tmp;
-			tmp = ft_strjoin(tmp, tmp_ch);
+			tmpx = ft_strjoin(tmp, tmp_ch);
 			free(tmp_ch);
-			trie_start_with_a(root->children[i], tmp, heap);
+			trie_start_with_a(root->children[i], tmpx, heap);
 			free(tmpx);
 		}
 		i++;
@@ -62,7 +61,7 @@ void	trie_start_with(t_trie_node *root, char *prefix, t_heap *heap)
 		cr = cr->children[index];
 		level++;
 	}
-	if (cr->is_word_end && trie_is_last_node(cr))
+	if (cr->is_word_end && !cr->has_child)
 	{
 		heap_add(heap, prefix);
 		return ;

@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/29 18:37:44 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/29 21:00:54 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/29 21:35:31 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,10 @@ void	trie_insert(t_trie_node *root, const char *key)
 	{
 		index = trie_char_to_index(key[level]);
 		if (!trie_node->children[index])
+		{
 			trie_node->children[index] = trie_new();
+			trie_node->has_child = 1;
+		}
 		trie_node = trie_node->children[index];
 		level++;
 	}
