@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   trie_search.c                                    .::    .:/ .      .::   */
+/*   trie_char_to_index.c                             .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/01/29 18:47:27 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/29 21:00:54 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/29 20:58:19 by aviscogl     #+#   ##    ##    #+#       */
+/*   Updated: 2018/01/29 21:02:36 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		trie_search(t_trie_node *root, const char *key)
+int		trie_char_to_index(char c)
 {
-    const size_t	length = ft_strlen(key);
-    t_trie_node		*trie_node;
-	size_t			level;
-	int				index;
+	char x;
 
-	trie_node = root;
-	level = 0;
-	while (level < length)
-	{
-		index = trie_char_to_index(key[level]);
-		if (!trie_node->children[index])
-            return (0);
-		trie_node = trie_node->children[index];
-		level++;
-	}
-    return (trie_node != NULL && trie_node->is_word_end);
+	x = ft_tolower(c);
+	if (ft_isalpha(c))
+		return x - 'a';
+	else if (x == '-')
+		return (27);
+	else if (x == '.')
+		return (28);
+	else if (x == '_')
+		return (29);
+	return (0);
 }

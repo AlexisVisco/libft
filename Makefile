@@ -6,7 +6,7 @@
 #    By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 14:07:28 by aviscogl     #+#   ##    ##    #+#        #
-#    Updated: 2018/01/29 19:20:47 by aviscogl    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/01/29 21:01:26 by aviscogl    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -87,6 +87,7 @@ trie/trie_insert.c \
 trie/trie_is_last_node.c \
 trie/trie_search.c \
 trie/trie_start_with.c \
+trie/trie_char_to_index.c \
 \
 math/math_abs.c \
 math/math_len.c \

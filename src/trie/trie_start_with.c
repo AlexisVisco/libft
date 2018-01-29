@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/29 18:52:07 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/29 20:23:40 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/29 21:00:54 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,7 +56,7 @@ void	trie_start_with(t_trie_node *root, char *prefix, t_heap *heap)
 	cr = root;
 	while (level < length)
 	{
-		index = CHAR_TO_INDEX(prefix[level]);
+		index = trie_char_to_index(prefix[level]);
 		if (!cr->children[index])
 			return ;
 		cr = cr->children[index];
