@@ -6,7 +6,7 @@
 /*   By: aviscogl <aviscogl@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/25 14:15:22 by aviscogl     #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/23 18:35:25 by aviscogl    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/31 13:13:48 by aviscogl    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,8 +18,9 @@
 
 typedef struct		s_hashtable
 {
-	void			**heaps;
+	t_heap			**heaps;
 	size_t			size;
+	void			(*free_func)(void *);
 }					t_hashtable;
 
 typedef struct		s_node
@@ -35,8 +36,8 @@ void				ht_set(t_hashtable *h, const char *key, void *val);
 t_node				*ht_remove(t_hashtable *t, const char *key);
 size_t				ht_hash(const char *str);
 void				*ht_get(t_hashtable *ht, const char *key);
-void				ht_free(t_hashtable *t, void (*del)(void *));
-void				ht_default_free(void *a);
+void				ht_free(t_hashtable *t);
+void				ht_default_free(t_hashtable *ht, void *a);
 void				ht_print(t_hashtable *ht, void (*printer)(t_node *));
 void				ht_print_debug(t_hashtable *t, void (*printer)(t_node *));
 
